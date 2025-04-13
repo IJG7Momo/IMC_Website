@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Iron-Man Campaign I./JG7</h2>
+<div class="rules-section">
+    <button onclick="toggleRules()">Click to show/hide campaign rules</button>
+    <div id="rules" style="display:none;">[Rules go here]</div>
+</div>
+<div class="members-section">
+    <h3>Members</h3>
+    <div class="member-card"><img src="{{ url_for('static', filename='img/emblem.png') }}"><p>PilotName<br><small>[Info here]</small></p></div>
+    <div class="member-card"><img src="{{ url_for('static', filename='img/emblem.png') }}"><p>PilotName2<br><small>[Info here]</small></p></div>
+</div>
+<script>
+function toggleRules() {
+    var rules = document.getElementById("rules");
+    rules.style.display = rules.style.display === "none" ? "block" : "none";
+}
+</script>
+{% endblock %}

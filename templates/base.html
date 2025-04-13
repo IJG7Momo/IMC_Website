@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JG7 IMC</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="{{ request.path.split('/')[-1] }}-page">
+    {% if request.path not in ['/login', '/register', '/'] %}
+    <div class="topbar">
+        <div class="title">I. Gruppe Jagdgeschwader 7 "Nowotny"</div>
+        <div class="user-area">
+            {{ session.user }}
+            <div class="dropdown-content">
+                <a href="#">Settings</a>
+                <a href="{{ url_for('logout') }}">Logout</a>
+            </div>
+        </div>
+    </div>
+    <img src="{{ url_for('static', filename='img/emblem.png') }}" id="emblem-toggle" onclick="toggleSidebar()">
+    <div class="sidebar" id="sidebar">
+        <a href="#"><span class="icon">🏠</span><span class="label">Dashboard</span></a>
+        <a href="#"><span class="icon">🧍</span><span class="label">Characters</span></a>
+        <a href="#"><span class="icon">📜</span><span class="label">Logs</span></a>
+        <a href="#"><span class="icon">📊</span><span class="label">Stats</span></a>
+    </div>
+    {% endif %}
+    <div class="main">
+        {% block content %}{% endblock %}
+    </div>
+<script>
+    function toggleSidebar() {
+        document.getElementById('sidebar').classList.toggle('collapsed');
+    }
+</script>
+</body>
+</html>

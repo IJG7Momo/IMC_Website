@@ -1,2 +1,3 @@
-# IMC_Website
-Website to manage JG7s IMC
+# JG7 IMC Website
+
+This is the official web application for the I./JG7 Iron-Man Campaign.
